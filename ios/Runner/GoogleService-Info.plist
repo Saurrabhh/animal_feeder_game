@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1059784534027-2advs2d97ltmmgeb82hn1o64p451bems.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1059784534027-2advs2d97ltmmgeb82hn1o64p451bems</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC29Vqc2DTXW6ls1taPVB80Wylt9fsLNW4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1059784534027</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.animalFeederGame</string>
+	<key>PROJECT_ID</key>
+	<string>animal-feeder-game</string>
+	<key>STORAGE_BUCKET</key>
+	<string>animal-feeder-game.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1059784534027:ios:747bcc6e00910f16643f0e</string>
+</dict>
+</plist>

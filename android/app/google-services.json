@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1059784534027",
+    "project_id": "animal-feeder-game",
+    "storage_bucket": "animal-feeder-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059784534027:android:596e5f486e613221643f0e",
+        "android_client_info": {
+          "package_name": "com.example.animal_feeder_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059784534027-qhku4vvmsufg8dh26mdrln1f19uvmnlm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATlKuQi6asA9LMYmU-3SeXHr1i-0hk1iA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059784534027-qhku4vvmsufg8dh26mdrln1f19uvmnlm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
