@@ -1,16 +1,62 @@
-# animal_feeder_game
+# Animal Feeder Game
+### -> Feed and grow your pets by capturing images.
+### -> Firebase Storage Feature to save captured images.
+### -> Used provider package for state management and acheive MVVM Architecture.
+### -> Responsive UI
+<br>
 
-A new Flutter project.
+# Video Demo [Video Link](https://drive.google.com/file/d/13ns6bPXo4xKZYGPOQSsE8hciAdqX377i/view?usp=sharing)
+https://github.com/Saurrabhh/yt_shorts_clone/assets/79056681/d01f7cab-f4bd-4ec5-8c14-890392e2cb9e
 
-## Getting Started
+# Apk
+[Game Apk Link](https://drive.google.com/file/d/1yP_aHFaLXYPDPCBBKB244C6nsulL9_EI/view?usp=sharing)
 
-This project is a starting point for a Flutter application.
+# App Screenshots
+<table>
+  <tr>
+    <td>
+      <h3 align="center">Home Page</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/animal_feeder_game/blob/master/app_screenshots/home_page.jpg?raw=true" alt="Home Page" width="200" height=auto/>
+      </p>
+    </td>
+    <td>
+      <h3 align="center">Paginated Loading</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/animal_feeder_game/blob/master/app_screenshots/paginated_loading.jpg?raw=true" alt="Paginated Loading" width="200" height=auto/>
+      </p>
+    </td>
+    <td>
+      <h3 align="center">Share Video</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/animal_feeder_game/blob/master/app_screenshots/share_link.jpg?raw=true" alt="Share Video" width="200" height=auto/>
+      </p>
+    </td>
+  </tr>
+   <tr>
+    <td>
+      <h3 align="center">Full Screen Video</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/yt_shorts_clone/blob/master/app_screenshots/fullscreen.jpg?raw=true" alt="Full Screen Video" width="200" height=auto/>
+      </p>
+    </td>
+    <td>
+      <h3 align="center">Video Description</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/yt_shorts_clone/blob/master/app_screenshots/full_description.jpg?raw=true" alt="Video Description" width="200" height=auto/>
+      </p>
+    </td>
+    <td>
+      <h3 align="center">Like Video</h3>
+      <p align="center">
+        <img src="https://github.com/Saurrabhh/yt_shorts_clone/blob/master/app_screenshots/like.jpg?raw=true" alt="Like Video" width="200" height=auto/>
+      </p>
+    </td>
+  </tr>
+</table>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Steps to install
+1. Ensure flutter version 3.10 or above is present.
+2. Run flutter pub get to get the dependencies.
+3. Have an internet connection.
+4. Build the app.
