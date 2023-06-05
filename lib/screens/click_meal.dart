@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:animal_feeder_game/services/animal_service.dart';
+import 'package:animal_feeder_game/services/firebase_storage_service.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -52,12 +53,22 @@ class _ClickMealState extends State<ClickMeal> {
   }
 
   addExp() async {
+    bool uploadComplete = false;
+    bool timerComplete = false;
     animalService.addExp(100);
-    await showDialog(
+    showDialog(
         context: context,
-        builder: (_) {
+        builder: (localContext) {
           Future.delayed(
-              const Duration(seconds: 3), () => Navigator.pop(context));
+            const Duration(seconds: 5),
+            () {
+              if (uploadComplete) {
+                Navigator.pop(localContext);
+                Navigator.pop(context);
+              }
+              timerComplete = true;
+            },
+          );
           return Scaffold(
             body: Center(
               child: Text(
@@ -68,7 +79,14 @@ class _ClickMealState extends State<ClickMeal> {
             ),
           );
         });
-    if (context.mounted) Navigator.pop(context);
+
+    await FireBaseStorageService.uploadImage(clickedImage!);
+    uploadComplete = true;
+    if(timerComplete && context.mounted){
+      Navigator.pop(context);
+      Navigator.pop(context);
+    }
+
   }
 
   @override
@@ -96,7 +114,34 @@ class _ClickMealState extends State<ClickMeal> {
       ),
       padding: const EdgeInsets.symmetric(vertical: 50),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [_buildPlate(), _buildTextMenu(context), _buildButtons()],
+      ),
+    );
+  }
+
+  Widget _buildPlate() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        clickedImage == null
+            ? SvgPicture.asset(MyAssets.forkImg)
+            : const SizedBox(),
+        _buildCamera(),
+        clickedImage == null
+            ? SvgPicture.asset(MyAssets.spoonImg)
+            : const SizedBox(),
+      ],
+    );
+  }
+
+  Widget _buildTextMenu(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: Text(
+        clickedImage == null ? "Click your meal" : "Will you eat this?",
+        style: GoogleFonts.andika(
+            textStyle: Theme.of(context).textTheme.titleMedium),
       ),
     );
   }
@@ -131,65 +176,39 @@ class _ClickMealState extends State<ClickMeal> {
     );
   }
 
-  Widget _buildTextMenu(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      child: Text(
-        clickedImage == null ? "Click your meal" : "Will you eat this?",
-        style: GoogleFonts.andika(
-            textStyle: Theme.of(context).textTheme.titleMedium),
-      ),
-    );
-  }
-
-  Widget _buildPlate() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        clickedImage == null
-            ? SvgPicture.asset(MyAssets.forkImg)
-            : const SizedBox(),
-        _buildCamera(),
-        clickedImage == null
-            ? SvgPicture.asset(MyAssets.spoonImg)
-            : const SizedBox(),
-      ],
-    );
-  }
-
   Widget _buildCamera() {
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            if (clickedImage == null) ...corners,
-            FutureBuilder<void>(
-                future: future,
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return SvgPicture.asset(MyAssets.plateImg);
-                  }
-                  return Container(
-                    width: 200.0,
-                    height: 200.0,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.black,
-                    ),
-                    child: ClipOval(
-                        child: clickedImage == null
-                            ? CameraPreview(cameraController)
-                            : Image.file(
-                                clickedImage!,
-                                fit: BoxFit.cover,
-                                width: double.infinity,
-                                height: double.infinity,
-                              )),
-                  );
-                })
-          ],
-        ),
-      );
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          if (clickedImage == null) ...corners,
+          FutureBuilder<void>(
+              future: future,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return SvgPicture.asset(MyAssets.plateImg);
+                }
+                return Container(
+                  width: 200.0,
+                  height: 200.0,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.black,
+                  ),
+                  child: ClipOval(
+                      child: clickedImage == null
+                          ? CameraPreview(cameraController)
+                          : Image.file(
+                              clickedImage!,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: double.infinity,
+                            )),
+                );
+              })
+        ],
+      ),
+    );
   }
 }

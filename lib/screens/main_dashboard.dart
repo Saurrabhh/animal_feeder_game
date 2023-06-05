@@ -11,18 +11,21 @@ class MainDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const AnimalsGridView(),
-          ElevatedButton(
-            onPressed: () => Navigator.push(
-                context, MaterialPageRoute(builder: (_) => const FeedScreen())),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text(
-                'Share your meal',
-                style: GoogleFonts.andika(
-                    textStyle: Theme.of(context).textTheme.bodyMedium),
+          const Expanded(child: Center(child: AnimalsGridView())),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 150),
+            child: ElevatedButton(
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const FeedScreen())),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'Share your meal',
+                  style: GoogleFonts.andika(
+                      textStyle: Theme.of(context).textTheme.bodyMedium),
+                ),
               ),
             ),
           ),

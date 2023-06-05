@@ -20,7 +20,8 @@ class NotificationService {
   }
 
   static Future instantNotification(String msg) async {
-    var android = const AndroidNotificationDetails("eat", "eat_channel");
+    var android = const AndroidNotificationDetails("eat", "eat_channel",priority: Priority.high,
+        importance: Importance.max);
     var ios = const DarwinNotificationDetails();
     var platform = NotificationDetails(android: android, iOS: ios);
 

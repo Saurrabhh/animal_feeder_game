@@ -23,14 +23,17 @@ class FeedScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
+            flex: 25,
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Image.asset(
                 animalService.getCurrentAnimal().getImage(),
+                fit: BoxFit.cover,
               ),
             ),
           ),
-          const ClickMeal()
+          const Expanded(
+              flex:75,child: ClickMeal(),)
         ],
       ),
     );
